@@ -6,7 +6,6 @@
   export let value;
   export let elementTag = 'img';
   export let options;
-  export let class="";
   const defaultOptions = {
     format: 'CODE128',
     width: 2,
@@ -41,9 +40,9 @@
 </script>
 
 {#if elementTag === 'img'}
-  <img {class} bind:this={barcode} alt="" />
+  <img class="{$$props.class?$$props.class:''}" bind:this={barcode} alt="" />
 {:else if elementTag === 'canvas'}
-  <canvas {class} bind:this={barcode}></canvas>
+  <canvas class="{$$props.class?$$props.class:''}" bind:this={barcode}></canvas>
 {:else}
-  <svg {class} bind:this={barcode}></svg>
+  <svg class="{$$props.class?$$props.class:''}" bind:this={barcode}></svg>
 {/if}
